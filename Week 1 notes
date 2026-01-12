@@ -1,0 +1,30 @@
+
+- Introduction that llms are just neural nets good at predicting the next word or next token.
+    - Predicts the probability of next word or next token. [softmax]
+    - LLMs at core has a parameter file which contains weights & bais and code file in any language containing neural nets.
+
+- Training Phase
+    - training phase consist of pre-training which involves training a neural net on internet data to produce a base model. ~ Resource intensive and costly. time span goes to months
+    - This base model is fine tuned with conversation data which may be organically generated or synthetic using llms as well. ~ Less intensive than pre training;
+    - finally it produces a conversation bot
+
+
+
+
+Security
+ - jailbreak
+ making llm to prompt and get harmful information
+  ~ jailbreaks are thru prompting 
+  some examples are
+     - roleplay
+     - base64 notation of the same prompt
+     - universal transferable suffix - some random set of characters
+     - randomly curated noise in the images 
+
+- Prompt Injection
+  - hijacking the model to override the current prompt to some other prompt
+      ~ example:
+      1. forget the previously used to prompt and uses harmful prompt that maybe hidden in images and websites which maybe only visible to llms
+      2. Thru bard when a document is summarise or being used as source, the doc is used as means for prompt injection which may contain private or harmful urls to ping or make request to.
+         if a person sends request to the url it may contain PII which can be accessed by the hacker
+         

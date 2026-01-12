@@ -1,0 +1,22 @@
+flowchart LR
+    A[User Query] --> B[Query Embedding Model]
+
+    D[Documents PDFs, Docs, Wiki, DB] ---> Knowledge_Base
+
+    subgraph Knowledge_Base
+        E[Chunking & Preprocessing]
+        F[Embedding Model]
+        G[Vector Database]
+        E --> F --> G
+    end
+
+    B --> H[Similarity Search]
+    G --> H
+
+    H --> I[Top-K Relevant Chunks]
+    I --> J[Prompt Builder Query + Context]
+
+    J --> K[LLM]
+    K --> L[Answer with Sources]
+
+    style Knowledge_Base fill:#f5f3,stroke:#888

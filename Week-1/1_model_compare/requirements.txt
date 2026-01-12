@@ -1,0 +1,6 @@
+langchain
+langchain_aws
+boto3
+langchain_ollama
+langchain_groq
+python-dotenv
