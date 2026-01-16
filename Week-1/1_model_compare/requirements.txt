@@ -4,3 +4,5 @@ boto3
 langchain_ollama
 langchain_groq
 python-dotenv
+langchain_openai
+langchain-google-genai

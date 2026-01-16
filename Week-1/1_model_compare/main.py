@@ -2,6 +2,9 @@ from langchain_aws import ChatBedrock
 from langchain_ollama import ChatOllama
 from langchain_groq import ChatGroq
 from typing import Any, Dict
+from langchain_openai import AzureChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
+
 import json
 import time
 import os
@@ -16,30 +19,24 @@ TASK_PROMPTS = {
 }
 
 
-def get_models_from_bedrock(model_list: Dict[str, str]):
-    """Gets the models from Aws Bedrock"""
+def get_models(model_list: Dict[str, str]):
+    """Initialise and returns models of different providers"""
     models = {}
     for model_name, model_id in model_list.items():
-        if model_name != "ollama":  # Skip ollama entries
+
+        if model_name == "ollama": 
+            models[model_name] = ChatOllama(model=model_id)
+        elif model_name == "gemini":
+            models[model_name] = ChatGoogleGenerativeAI(model=model_id)
+        elif model_name == "openai":
+            models[model_name] = AzureChatOpenAI(
+            azure_deployment="gpt-4.1",
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            api_version=os.getenv("OPENAI_API_VERSION")
+            )
+        else:
             models[model_name] = ChatBedrock(model_id=model_id)
     return models
-
-
-def get_models_from_ollama(model_list: Dict[str, str]):
-    """Gets the models from Ollama"""
-    models = {}
-    for model_name, model_id in model_list.items():
-        if model_name == "ollama":  # Only process ollama entries
-            models[model_name] = ChatOllama(model=model_id)
-    return models
-
-
-def get_all_models(model_list: Dict[str, str]):
-    """Gets all the models from Bedrock and Ollama"""
-    
-    bedrock_models = get_models_from_bedrock(model_list)
-    ollama_models = get_models_from_ollama(model_list)
-    return {**bedrock_models, **ollama_models}
 
 
 def evaluate_response(model_name: str, response: Any, prompt: str, evaluator_model: Any, latency: float):
@@ -47,7 +44,7 @@ def evaluate_response(model_name: str, response: Any, prompt: str, evaluator_mod
     
     response_content = response.content if hasattr(response, 'content') else str(response)
     
-    evaluation_prompt = f"""You are an expert AI model evaluator. Evaluate the following model response based on the given criteria.
+    evaluation_prompt = f"""You are an expert AI Response evaluator. Evaluate the following model response based on the given criteria.
 
     Model Name: {model_name}
     Original Prompt: {prompt}
@@ -71,7 +68,9 @@ def evaluate_response(model_name: str, response: Any, prompt: str, evaluator_mod
     "comments": "Your detailed comments about the model's performance, strengths, and weaknesses"
     }}
 
-    Only return the JSON object, no additional text."""
+    Only return the JSON object, no additional text.
+    Make sure to be strict, fair and not to leave any edge-cases to be evaluated.
+    """
 
     try:
         evaluation_response = evaluator_model.invoke(evaluation_prompt)
@@ -139,9 +138,11 @@ def get_response_from_models(models: Dict[str, Any], prompts: Dict[str, str], ev
 
 
 MODEL_LIST = {
+    "gemini": "gemini-2.5-flash",
+    "ollama": "deepseek-r1:14b",
     "bedrock_claude_3_5_sonnet": "anthropic.claude-3-5-sonnet-20240620-v1:0",
     "gpt_oss": "openai.gpt-oss-safeguard-20b",
-    "ollama": "deepseek-r1:14b",
+    "openai":"gpt-4.1",
 }
 
 def save_results_to_markdown(results: Dict[str, Any]) -> str:
@@ -162,7 +163,7 @@ EVALUATOR_MODEL = ChatGroq(model="llama-3.3-70b-versatile", api_key=os.getenv("G
 
 def main():
     """Main function"""
-    models = get_all_models(MODEL_LIST)
+    models = get_models(MODEL_LIST)
     results = get_response_from_models(models, TASK_PROMPTS, EVALUATOR_MODEL)
     
     # Save results to a Markdown file
