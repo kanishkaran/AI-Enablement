@@ -1,0 +1,241 @@
+# Invoice Processing and Payment Policy
+**Finance Department - Accounts Payable**  
+**Effective Date: February 1, 2026**  
+**Policy Number: FIN-AP-001**
+
+---
+
+## Purpose
+
+This policy establishes standardized procedures for invoice processing, approval workflows, and payment execution to ensure accurate financial records, timely vendor payments, and proper internal controls.
+
+## Scope
+
+This policy applies to all employees who submit, approve, or process invoices and payment requests across all departments and subsidiaries.
+
+## Policy Statement
+
+All invoices must be processed through the approved accounts payable workflow with proper documentation, authorization, and verification before payment is issued.
+
+## Invoice Submission Requirements
+
+### Required Documentation
+
+All invoices submitted for payment must include:
+
+- Original vendor invoice with unique invoice number
+- Valid purchase order number (for PO-based purchases)
+- Proof of receipt or service completion
+- Department manager approval signature or email
+- Proper GL account coding
+
+### Invoice Format Standards
+
+Acceptable invoice formats include PDF, scanned images, or paper originals. Invoices must clearly display:
+
+- Vendor name and address
+- Invoice date and due date
+- Itemized description of goods or services
+- Quantities and unit prices
+- Subtotal, tax amounts, and total due
+- Payment terms and remittance address
+
+## Approval Workflow
+
+### Authorization Limits
+
+| Position Level | Single Invoice Limit | Monthly Cumulative Limit |
+|---------------|---------------------|-------------------------|
+| Department Manager | $5,000 | $25,000 |
+| Director | $25,000 | $100,000 |
+| VP/C-Suite | $100,000 | No limit |
+| CEO | No limit | No limit |
+
+Invoices exceeding authorization limits require escalation to the next approval level.
+
+### Approval Process Timeline
+
+**Day 1-2:** Invoice received and logged into system  
+**Day 3-5:** Routed to department for verification  
+**Day 6-7:** Manager approval and GL coding  
+**Day 8-10:** Finance review and validation  
+**Day 11:** Payment scheduling  
+
+Standard processing time is 11 business days from invoice receipt to payment execution.
+
+## Payment Terms and Execution
+
+### Standard Payment Terms
+
+**Net 30:** Payment due 30 days from invoice date (standard default)  
+**Net 60:** Extended terms for approved vendors  
+**2/10 Net 30:** 2% discount if paid within 10 days, otherwise due in 30 days  
+**Due on Receipt:** Immediate payment for utilities and statutory payments  
+
+### Payment Methods
+
+**ACH Transfer:** Preferred method for recurring and large payments ($1,000+)  
+**Check:** Available for vendors unable to accept electronic payments  
+**Wire Transfer:** Reserved for international payments and time-sensitive transactions exceeding $50,000  
+**Corporate Card:** Pre-approved for subscriptions and recurring services under $2,500  
+
+### Payment Schedule
+
+Payments are processed according to the following schedule:
+
+- ACH batches: Tuesdays and Fridays
+- Check runs: Wednesdays
+- Wire transfers: As needed with 24-hour advance notice
+- International wires: 48-hour advance notice required
+
+## Three-Way Match Verification
+
+Before payment approval, Accounts Payable must verify:
+
+1. Purchase Order matches invoice vendor and amount
+2. Receiving report confirms goods/services delivered
+3. Invoice details align with PO terms and pricing
+
+Discrepancies exceeding $100 or 5% of invoice value must be researched and resolved before payment.
+
+## Exceptions and Special Circumstances
+
+### Emergency Payments
+
+Emergency payments bypassing standard workflow require:
+
+- Written justification from requesting department
+- CFO approval for amounts over $10,000
+- Documentation submitted within 48 hours of payment
+- Incident report for process improvement review
+
+### Recurring Payments
+
+Pre-approved recurring vendors (rent, utilities, subscriptions) are processed automatically with quarterly reviews to verify:
+
+- Continued business need
+- Competitive pricing
+- Contract compliance
+- Accurate billing
+
+### International Vendors
+
+International payments require additional documentation:
+
+- W-8BEN or W-8BEN-E form for tax purposes
+- Wire transfer instructions verified directly with vendor
+- Currency exchange rate locked at time of approval
+- Compliance review for sanctioned countries or entities
+
+## Vendor Management
+
+### Vendor Onboarding
+
+New vendors must complete onboarding before first payment:
+
+- W-9 or W-8 form submission
+- Vendor master data form with banking details
+- Insurance certificates (if required by contract)
+- Background check for vendors with system access
+- Payment terms negotiation and documentation
+
+### Vendor Performance Review
+
+Quarterly reviews assess vendor performance on:
+
+- Invoice accuracy and timeliness
+- Service quality and delivery performance
+- Payment terms compliance
+- Relationship management
+
+## Internal Controls
+
+### Segregation of Duties
+
+No single employee may:
+
+- Approve invoices and process payments
+- Create vendor records and approve payments to those vendors
+- Receive goods and approve payment without independent verification
+
+### Audit Trail Requirements
+
+All invoice transactions must maintain:
+
+- Complete approval chain documentation
+- Date and time stamps for each workflow step
+- User identification for all system actions
+- Supporting documentation retained for 7 years
+
+### Fraud Prevention
+
+Red flags requiring additional scrutiny:
+
+- New vendors with rush payment requests
+- Changes to vendor banking information
+- Invoices lacking proper documentation
+- Duplicate invoice numbers or amounts
+- Round-number invoices without itemization
+
+## Dispute Resolution
+
+### Invoice Discrepancies
+
+Disputed invoices are placed on hold and researched within 5 business days. Resolution requires:
+
+- Communication with vendor to clarify discrepancy
+- Department verification of goods/services
+- Documented resolution in invoice notes
+- Adjusted invoice or credit memo when applicable
+
+### Vendor Escalation Process
+
+Unresolved payment disputes follow this escalation:
+
+**Level 1:** AP Specialist coordinates with vendor (Days 1-5)  
+**Level 2:** AP Manager engages department manager (Days 6-10)  
+**Level 3:** Controller mediates with vendor management (Days 11-15)  
+**Level 4:** CFO final decision and resolution (Days 16+)  
+
+## Reporting and Metrics
+
+### Monthly Reporting
+
+Finance provides monthly reports including:
+
+- Total payments by department and category
+- Days payable outstanding (DPO)
+- Early payment discount capture rate
+- Aging of unpaid invoices
+- Exception and emergency payment summary
+
+### Key Performance Indicators
+
+Target metrics for AP performance:
+
+- Invoice processing time: 11 days or less (95% of invoices)
+- Payment accuracy: 99.5% error-free
+- Early payment discounts captured: 80% of available opportunities
+- Vendor inquiry resolution: 3 days or less
+
+## Policy Compliance
+
+Violation of this policy may result in:
+
+- Delayed payment processing
+- Removal of invoice approval authority
+- Mandatory retraining on AP procedures
+- Disciplinary action per HR policies
+
+## Policy Review
+
+This policy is reviewed annually and updated as needed to reflect changing business requirements, regulatory compliance, and best practices.
+
+---
+
+**Policy Owner:** Jennifer Martinez, Controller  
+**Approved by:** Sarah Chen, Chief Financial Officer  
+**Last Reviewed:** January 2026  
+**Next Review Date:** January 2027
+
+**Questions or Clarifications:** Contact Accounts Payable at ap@company.com or extension 4500
