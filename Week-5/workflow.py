@@ -5,8 +5,12 @@ from prompts.prompts import SUPERVISOR_SYSTEM_PROMPT
 from langchain_core.messages import BaseMessage, HumanMessage
 from typing import TypedDict, List
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
+
+os.environ["LANGSMITH_API_KEY"] = os.getenv("LANGSMITH_API_KEY")
+os.environ["LANGSMITH_TRACING"] = "true"
 
 class AgentState(TypedDict):
     messages : List[BaseMessage]

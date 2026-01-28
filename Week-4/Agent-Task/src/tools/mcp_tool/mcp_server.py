@@ -37,7 +37,7 @@ def get_google_services():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'Week-4/Agent-Task/src/tools/mcp_tool/credentials.json', SCOPES)
+                'src/tools/mcp_tool/credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
         
         # Save credentials for future use

@@ -10,7 +10,7 @@ def create_finance_agent():
     """
     llm = get_chat_model()
     
-    read_finance_docs = create_read_file_tool("Week-5/data/finance", "read_finance_docs")
+    read_finance_docs = create_read_file_tool("data/finance", "read_finance_docs")
     web_search = create_web_tool("finance_web_search", "Read Latest and Relevant Finance Related Information from web")
     
     tools = [read_finance_docs, web_search]

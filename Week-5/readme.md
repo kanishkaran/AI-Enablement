@@ -64,3 +64,7 @@ Week-5/
 
 ### IT Execution Trace
 ![IT Trace](output_images/it_trace.png)
+
+## Demo
+
+[agent-demo-video](./week-5-demo.mov)

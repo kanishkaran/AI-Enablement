@@ -26,6 +26,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+os.environ["LANGSMITH_API_KEY"] = os.getenv("LANGSMITH_API_KEY")
+os.environ["LANGSMITH_TRACING"] = "true"
+
 SYSTEM_PROMPT = """You are Presidio's Internal Research Agent. Help employees find accurate, actionable information from internal and external sources.
 
 IMPORTANT: Do not change the user given input/query at any point of time while using tool calling.
@@ -64,7 +67,7 @@ async def load_mcp_tools() -> List[BaseTool]:
         {
         "client": {
             "command": "python",
-            "args": ["Week-4/Agent-Task/src/tools/mcp_tool/mcp_server.py"],
+            "args": ["src/tools/mcp_tool/mcp_server.py"],
             "transport" : "stdio"
         }
         }
