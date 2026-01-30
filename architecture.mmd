@@ -1,0 +1,55 @@
+graph TB
+    A[User Submits Dispute] --> B[API Gateway]
+    B --> C[Orchestrator Agent<br/>Coordinates workflow & manages state]
+    
+    C --> D1[Data Retrieval Layer]
+    C --> D2[RAG Pipeline]
+    
+    subgraph "Data Sources"
+        E1[(CRM System<br/>Customer profiles<br/>Lifetime value<br/>Behavioral patterns<br/>Communication logs)]
+        E2[(Payment DB<br/>Transaction records<br/>Refund history<br/>Payment methods<br/>Chargeback data)]
+        E3[(Policy Vector DB<br/>Return policies<br/>Warranty terms<br/>Service agreements)]
+        E4[(Dispute History DB<br/>Past resolutions<br/>Similar cases<br/>Embeddings)]
+    end
+    
+    D1 -->|SQL Queries| E1
+    D1 -->|SQL Queries| E2
+    D1 --> F1[Structured Data:<br/>Customer tier<br/>Transaction amount<br/>Refund count]
+    
+    D2 -->|Semantic Search| E3
+    D2 -->|Vector Similarity| E4
+    D2 --> F2[Retrieved Context:<br/>Relevant policies<br/>Similar cases<br/>Resolution patterns]
+    
+    F1 & F2 --> G[Reasoning Agent<br/>Analyzes all context<br/>Evaluates claim validity<br/>Considers customer value<br/>Assesses risk factors]
+    
+    G --> H{Decision Logic}
+    
+    H -->|High-value customer<br/>Valid claim<br/>Within policy| I1[Auto-approve]
+    H -->|Clear policy violation<br/>No exceptions apply| I2[Auto-reject with explanation]
+    H -->|Fraud indicators<br/>Chargeback pattern<br/>Account anomalies| I3[Flag for fraud review]
+    H -->|Complex/Ambiguous<br/>High-value dispute<br/>Precedent unclear| I4[Escalate to human]
+    
+    I1 --> J[Validation Layer<br/>Check refund limits<br/>Verify inventory<br/>Compliance rules]
+    
+    J -->|Pass| K1[Payment System API]
+    J -->|Fail| I4
+    
+    K1 --> L[Notification Service]
+    I2 --> L
+    I3 --> M[Security Queue]
+    I4 --> N[Human Agent Queue]
+    
+    M --> L
+    N --> L
+    
+    L --> O[User Receives Response]
+    
+    O --> P[Feedback Collection]
+    P -->|Update resolution patterns| E4
+    P -->|Update customer sentiment| E1
+    
+    style C fill:#ffcc99
+    style G fill:#ff9999
+    style E1 fill:#e6f3ff
+    style E2 fill:#e6f3ff
+    style J fill:#fff9e6
